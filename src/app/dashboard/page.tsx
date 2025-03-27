@@ -11,7 +11,9 @@ export default function Dashboard() {
 
     const handleAddPasskey = async () => {
         try {
-            const result = await authClient.passkey.addPasskey();
+            const result = await authClient.passkey.addPasskey({
+                name: 'Solution',
+            });
             // Check if the operation was successful
             if (result?.error.status !== 400) {
                 setStatus({

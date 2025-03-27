@@ -84,6 +84,7 @@ export default function Home() {
                             onClick={async () => {
                                 await authClient.signIn.social({
                                     provider: 'google',
+                                    callbackURL: '/dashboard',
                                 });
                             }}
                         >
@@ -710,6 +711,7 @@ export default function Home() {
                                     onClick={async () => {
                                         await authClient.signIn.social({
                                             provider: 'google',
+                                            callbackURL: '/dashboard',
                                         });
                                     }}
                                 >

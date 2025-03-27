@@ -12,6 +12,6 @@ const getBaseUrl = () => {
 
 export const authClient = createAuthClient({
     plugins: [passkeyClient()],
-    baseURL: getBaseUrl(),
+    baseUrl: getBaseUrl(),
     basePath: '/api/auth',
 });

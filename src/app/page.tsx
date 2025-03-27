@@ -38,6 +38,7 @@ export default function Home() {
     const signin = async () => {
         await authClient.signIn.social({
             provider: 'google',
+            callbackURL: '/dashboard',
         });
     };
     return (

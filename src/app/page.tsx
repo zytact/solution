@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -31,6 +32,7 @@ import {
     Search,
     ArrowRight,
 } from 'lucide-react';
+import { authClient } from '@/lib/auth-client';
 
 export default function Home() {
     return (
@@ -77,7 +79,14 @@ export default function Home() {
                         >
                             Admin Login
                         </Button>
-                        <Button className="bg-success hover:bg-green-600">
+                        <Button
+                            className="bg-success hover:bg-green-600"
+                            onClick={async () => {
+                                await authClient.signIn.social({
+                                    provider: 'google',
+                                });
+                            }}
+                        >
                             Start Verification
                             <ChevronRight className="ml-1 h-4 w-4" />
                         </Button>
@@ -698,6 +707,11 @@ export default function Home() {
                                 <Button
                                     size="lg"
                                     className="bg-success hover:bg-green-600"
+                                    onClick={async () => {
+                                        await authClient.signIn.social({
+                                            provider: 'google',
+                                        });
+                                    }}
                                 >
                                     Start Verification
                                     <ArrowRight className="ml-2 h-4 w-4" />

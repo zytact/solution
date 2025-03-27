@@ -359,8 +359,8 @@ export default function Home() {
                                         Proceed to Vote
                                     </h3>
                                     <p className="text-neutral-500">
-                                        Once verified, you'll be directed to the
-                                        secure voting interface.
+                                        Once verified, you&apos;ll be directed
+                                        to the secure voting interface.
                                     </p>
                                 </div>
                             </div>
@@ -601,8 +601,8 @@ export default function Home() {
                                     <AccordionContent className="text-neutral-500">
                                         You should bring your voter ID card, a
                                         government-issued photo ID (such as a
-                                        driver's license or passport), and your
-                                        registered mobile phone for OTP
+                                        driver&apos;s license or passport), and
+                                        your registered mobile phone for OTP
                                         verification if needed.
                                     </AccordionContent>
                                 </AccordionItem>
@@ -636,15 +636,15 @@ export default function Home() {
                                 </AccordionItem>
                                 <AccordionItem value="item-4">
                                     <AccordionTrigger className="text-left text-secondary font-medium">
-                                        What if I don't have a smartphone for
-                                        OTP verification?
+                                        What if I don&apos;t have a smartphone
+                                        for OTP verification?
                                     </AccordionTrigger>
                                     <AccordionContent className="text-neutral-500">
                                         We offer multiple verification methods.
-                                        If you don't have a smartphone, you can
-                                        use biometric verification or bring your
-                                        voter ID card for QR code scanning at
-                                        the polling booth.
+                                        If you don&apos;t have a smartphone, you
+                                        can use biometric verification or bring
+                                        your voter ID card for QR code scanning
+                                        at the polling booth.
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-5">

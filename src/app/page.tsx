@@ -35,6 +35,12 @@ import {
 import { authClient } from '@/lib/auth-client';
 
 export default function Home() {
+    const signin = async () => {
+        await authClient.signIn.social({
+            provider: 'google',
+            callbackURL: '/dashboard',
+        });
+    };
     return (
         <div className="flex min-h-screen flex-col">
             {/* Header */}
@@ -81,12 +87,7 @@ export default function Home() {
                         </Button>
                         <Button
                             className="bg-success hover:bg-green-600"
-                            onClick={async () => {
-                                await authClient.signIn.social({
-                                    provider: 'google',
-                                    callbackURL: '/dashboard',
-                                });
-                            }}
+                            onClick={signin}
                         >
                             Start Verification
                             <ChevronRight className="ml-1 h-4 w-4" />
@@ -119,6 +120,7 @@ export default function Home() {
                                     <Button
                                         size="lg"
                                         className="bg-success hover:bg-green-600"
+                                        onClick={signin}
                                     >
                                         Start Verification
                                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -378,6 +380,7 @@ export default function Home() {
                                 <Button
                                     size="lg"
                                     className="bg-success hover:bg-green-600"
+                                    onClick={signin}
                                 >
                                     Start Verification Process
                                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -708,12 +711,7 @@ export default function Home() {
                                 <Button
                                     size="lg"
                                     className="bg-success hover:bg-green-600"
-                                    onClick={async () => {
-                                        await authClient.signIn.social({
-                                            provider: 'google',
-                                            callbackURL: '/dashboard',
-                                        });
-                                    }}
+                                    onClick={signin}
                                 >
                                     Start Verification
                                     <ArrowRight className="ml-2 h-4 w-4" />

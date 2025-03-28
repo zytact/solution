@@ -1,9 +1,35 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { authClient } from '@/lib/auth-client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Dashboard() {
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const getSession = async () => {
+            try {
+                const session = await authClient.getSession();
+                if (!session.data) {
+                    router.push('/');
+                } else {
+                    setIsAuthenticated(true);
+                }
+            } catch (error) {
+                console.error('Error fetching session:', error);
+                router.push('/');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        getSession();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const [status, setStatus] = useState<{
         success: boolean;
         message: string;
@@ -56,6 +82,18 @@ export default function Dashboard() {
             });
         }
     };
+
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                Loading...
+            </div>
+        );
+    }
+
+    if (!isAuthenticated) {
+        return null; // Don't render anything if not authenticated (will redirect in useEffect)
+    }
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
